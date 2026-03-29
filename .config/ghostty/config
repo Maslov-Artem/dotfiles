@@ -1,0 +1,83 @@
+# Run `ghostty +show-config --default --docs` to view a list
+
+#=============================
+# Appearance
+#=============================
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+font-feature = liga=1
+font-feature = calt=1
+font-style = Regular
+
+theme = TokyoNight
+cursor-style = block
+cursor-opacity = 1
+cursor-style-blink = false
+window-padding-x = 0
+
+background-opacity = 0.9
+background-opacity-cells = true
+background-image = ./blue_g.png
+background-image-opacity = 1
+background-image-fit = contain
+background-image-position = top-right
+background-blur = false
+window-decoration = auto
+window-theme = ghostty
+minimum-contrast = 1.0
+
+alpha-blending = native
+#============================
+# Behavior
+#============================
+scrollback-limit = 10000000
+confirm-close-surface = false
+maximize= true
+fullscreen = false
+window-vsync = true
+
+#============================
+# Input
+#============================
+copy-on-select = true
+mouse-hide-while-typing = true
+
+#============================
+# Shell
+#============================
+
+working-directory = /home/Artem/Dev/
+shell-integration = zsh
+
+#============================
+# Ssh-config
+#============================
+shell-integration-features = ssh-env
+
+#============================
+# Keybindings
+#============================
+
+keybind = ctrl+shift+k=new_split:up
+keybind = ctrl+shift+j=new_split:down
+keybind = ctrl+shift+h=new_split:left
+keybind = ctrl+shift+l=new_split:right
+
+keybind = alt+k=resize_split:up,50
+keybind = alt+j=resize_split:down,50
+keybind = alt+h=resize_split:left,50
+keybind = alt+l=resize_split:right,50
+
+keybind = alt+e=equalize_splits
+
+keybind = alt+k=goto_split:up
+keybind = alt+j=goto_split:down
+keybind = alt+h=goto_split:left
+keybind = alt+l=goto_split:right
+
+keybind = F11=toggle_fullscreen
+
+keybind = ctrl+alt+q=close_surface
+
+keybind = ctrl+arrow_up=increase_font_size:1
+keybind = ctrl+arrow_down=decrease_font_size:1
