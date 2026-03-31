@@ -36,3 +36,31 @@ autocmd("BufWritePre", {
 		})
 	end,
 })
+
+-- ─────────────────────────────────────────────
+-- Start treesitter highlight
+-- ─────────────────────────────────────────────
+
+local treesitter_group = augroup("TresitterSetup", { clear = true })
+
+autocmd("FileType", {
+	group = treesitter_group,
+	desc = "Enable treesitter highlight and indentation",
+	pattern = { "*" },
+	callback = function(event)
+		local filetype = vim.bo[event.buf].filetype
+		local lang = vim.treesitter.language.get_lang(filetype)
+
+		if not lang then
+			return
+		end
+
+		if vim.bo[event.buf].buftype ~= "" then
+			return
+		end
+
+		if vim.treesitter.language.add(lang) then
+			vim.treesitter.start(event.buf, lang)
+		end
+	end,
+})

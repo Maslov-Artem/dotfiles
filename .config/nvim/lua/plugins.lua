@@ -32,11 +32,7 @@ require("mini.pick").setup()
 require("nvim-autopairs").setup()
 
 -- Treesitter configuration
-require("nvim-treesitter.configs").setup({
-	ensure_installed = { "python", "lua", "bash", "cpp" },
-	highlight = { enable = true },
-	indent = { enable = true },
-})
+require("nvim-treesitter").install({ "python", "lua", "bash", "cpp" })
 
 -- Oil (file manager)
 require("oil").setup({
