@@ -21,13 +21,13 @@ keymap("n", "<C-u>", "<C-u>zz", s)
 -- ─────────────────────────────────────────────
 keymap("n", "<leader>n", "<cmd>tabnew<CR>", s) -- Open new tab
 keymap("n", "<leader>|", "<cmd>vsplit<CR>", s) -- Vertical split
-keymap("n", "<leader>-", "<cmd>split<CR>", s) -- Horizontal split
+keymap("n", "<leader>-", "<cmd>split<CR>", s)  -- Horizontal split
 
 -- ─────────────────────────────────────────────
 -- Editing & Clipboard
 -- ─────────────────────────────────────────────
-keymap("v", "<leader>p", '"_dP', s) -- Paste without overwriting register
-keymap("x", "y", [["+y]], s) -- Yank to system clipboard
+keymap("v", "<leader>p", '"_dP', s)    -- Paste without overwriting register
+keymap("x", "y", [["+y]], s)           -- Yank to system clipboard
 keymap("t", "<Esc>", "<C-\\><C-N>", s) -- Escape terminal mode
 
 -- ─────────────────────────────────────────────
@@ -35,12 +35,12 @@ keymap("t", "<Esc>", "<C-\\><C-N>", s) -- Escape terminal mode
 -- ─────────────────────────────────────────────
 keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", s) -- Go to definition
 
-keymap("n", "K", vim.lsp.buf.hover, opts) -- Show documentation
-keymap("n", "gd", vim.lsp.buf.definition, opts) -- Go to definition
-keymap("n", "gr", vim.lsp.buf.references, opts) -- List references
-keymap("n", "gi", vim.lsp.buf.implementation, opts) -- Go to implementation
-keymap("n", "<leader>rn", vim.lsp.buf.rename, opts) -- Rename symbol
-keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- Code actions
+keymap("n", "K", vim.lsp.buf.hover, opts)                             -- Show documentation
+keymap("n", "gd", vim.lsp.buf.definition, opts)                       -- Go to definition
+keymap("n", "gr", vim.lsp.buf.references, opts)                       -- List references
+keymap("n", "gi", vim.lsp.buf.implementation, opts)                   -- Go to implementation
+keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)                   -- Rename symbol
+keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)              -- Code actions
 
 -- ─────────────────────────────────────────────
 -- Keymaps for Core Plugins
@@ -55,8 +55,8 @@ keymap("n", "<leader>e", ":Oil<CR>", { desc = "Open Oil file manager" })
 -- File Operations
 -- ─────────────────────────────────────────────
 keymap("n", "<leader>o", ":update<CR>:source<CR>", s) -- Save & reload config
-keymap("n", "<leader>w", ":write<CR>", s) -- Save file
-keymap("n", "<leader>q", ":quit<CR>", s) -- Quit
+keymap("n", "<leader>w", ":write<CR>", s)             -- Save file
+keymap("n", "<leader>q", ":quit<CR>", s)              -- Quit
 
 -- ─────────────────────────────────────────────
 -- Plugin Management (Neovim's vim.pack)
@@ -72,3 +72,9 @@ keymap("n", "<leader>fm", function()
 		lsp_fallback = true,
 	})
 end, { desc = "Format file with Conform", silent = true })
+
+-- ─────────────────────────────────────────────
+-- Diagnostic
+-- ─────────────────────────────────────────────
+keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic window" })
+keymap("n", "<leader>ld", vim.diagnostic.setloclist, { desc = "Open all diagnostic messages in current file" })

@@ -12,7 +12,8 @@ pack.add({
 })
 
 require("gitsigns").setup({
-	signcolumn = false, -- disable separate sign column, uses number column
+	signcolumn = true, -- disable separate sign column, uses number column
+	auto_attach = true,
 })
 
 -- ─────────────────────────────────────────────
@@ -30,9 +31,6 @@ require("mini.pick").setup()
 
 -- Autopairs
 require("nvim-autopairs").setup()
-
--- Treesitter configuration
-require("nvim-treesitter").install({ "python", "lua", "bash", "cpp", "yaml" })
 
 -- Oil (file manager)
 require("oil").setup({

@@ -55,11 +55,19 @@ o.clipboard = "unnamedplus" -- Use system clipboard for all operations
 -- Diagnostic Settings
 -- ─────────────────────────────────────────────
 vim.diagnostic.config({
-	virtual_text = true, -- Show inline diagnostics
-	signs = true,     -- Show signs in the gutter
+	virtual_text = { source = true }, -- Show inline diagnostics
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN]  = "",
+			[vim.diagnostic.severity.INFO]  = "",
+			[vim.diagnostic.severity.HINT]  = "󰌵",
+		},
+	},
 	underline = true, -- Underline problematic text
 	update_in_insert = false,
 	severity_sort = true,
+
 })
 
 -- ─────────────────────────────────────────────
