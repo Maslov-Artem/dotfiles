@@ -48,19 +48,27 @@ autocmd("FileType", {
 	desc = "Enable treesitter highlight and indentation",
 	pattern = { "*" },
 	callback = function(event)
-		local filetype = vim.bo[event.buf].filetype
-		local lang = vim.treesitter.language.get_lang(filetype)
+		local ts = require('nvim-treesitter')
+		local lang = vim.treesitter.language.get_lang(event.match)
 
 		if not lang then
 			return
 		end
 
-		if vim.bo[event.buf].buftype ~= "" then
+		local available_langs = ts.get_available()
+		local is_available = vim.tbl_contains(available_langs, lang)
+
+		if not is_available then
 			return
 		end
 
-		if vim.treesitter.language.add(lang) then
-			vim.treesitter.start(event.buf, lang)
+		local installed_langs = ts.get_installed()
+		local is_installed = vim.tbl_contains(installed_langs, lang)
+
+		if not is_installed then
+			ts.install(lang):wait()
 		end
+
+		vim.treesitter.start()
 	end,
 })
