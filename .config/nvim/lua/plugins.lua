@@ -32,7 +32,7 @@ require("mini.pick").setup()
 require("nvim-autopairs").setup()
 
 -- Treesitter configuration
-require("nvim-treesitter").install({ "python", "lua", "bash", "cpp" })
+require("nvim-treesitter").install({ "python", "lua", "bash", "cpp", "yaml" })
 
 -- Oil (file manager)
 require("oil").setup({
@@ -91,8 +91,5 @@ require("blink.cmp").setup({
 
 	sources = {
 		default = { "lsp", "buffer", "snippets", "path" },
-	},
-	accept = {
-		auto_brackets = { enabled = true },
 	},
 })

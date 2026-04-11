@@ -125,3 +125,5 @@ alias cpr="rsync -avzh --progress"
 
 
 eval $(thefuck --alias)
+
+export EDITOR=nvim
